@@ -1,0 +1,71 @@
+no,nim,nama,ips_1,ips_2,ips_3,ips_4,cuti_1,cuti_2,cuti_3,cuti_4,sks_ditempuh_1,sks_ditempuh_2,sks_ditempuh_3,sks_ditempuh_4,sks_tidak_lulus_1,sks_tidak_lulus_2,sks_tidak_lulus_3,sks_tidak_lulus_4,status_lulus
+1,201804001,IVENA VIKRI MILLENIA,3.31,2.83,3.02,2.83,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,,,On time
+2,201804002,AMELIA FITRI SANUSI,3.78,3.94,3.39,3.43,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,,,On time
+3,201804004,JAMALUDIN YASYKURNIAAM,3.89,3.94,3.70,3.78,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,,,On time
+4,201804005,FIHAR DIMASTYO REZKIA PRATAMA,3.47,3.03,2.67,2.54,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,,,On time
+5,201804006,MUHAMAD RIZKI ARIF FADILLAH,3.44,2.81,,,aktif,aktif,resign,resign,18,,,,,,,,On time
+6,201804007,WOBBY RAMADHAN,3.17,2.83,1.89,1.30,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,7.00,13.00,progress
+7,201804008,MIA ROSMEIDA,3.67,3.81,3.37,3.54,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,,,On time
+8,201804009,RIZKY ULIRFAN,3.94,3.89,3.17,3.00,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,,,On time
+9,201804010,AHMAD RAIHAN,3.47,3.11,3.33,3.46,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,,,On time
+10,201804011,RAFY ZUCHDI SYAMSUDDIN,3.14,1.50,1.93,1.24,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,11.00,5.00,10.00,resign
+11,201804012,RENDYANTO PUTRA WIDODO,3.42,3.00,2.61,2.89,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,2.00,,late 1 year
+12,201804013,YUNIZA FITRI,3.08,2.78,2.87,2.98,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,,,On time
+13,201804014,MUHAMAD RIZKI BAGINDA S,3.64,3.61,2.65,2.85,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,3.00,,progress
+14,201804016,DZAKI AWALUDIN MUBAROK,3.64,3.72,3.24,3.37,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,,,On time
+15,201804017,RAHMAN ISKANDAR DZULKARNAIN,3.44,2.75,2.04,1.57,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,7.00,10.00,resign
+16,201804018,MUHAMMAD YUWAN MAULANA,3.47,3.39,3.17,3.39,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,,,On time
+17,201804019,FADHLY AULIA ROESWELLY,3.33,2.83,3.22,3.50,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,,,On time
+18,201804020,ADE ALFI ERIYANTO,3.28,2.86,2.37,1.72,aktif,aktif,aktif,aktif,18,18.00,23.00,23.00,,,2.00,10.00,late 1 year
+1,201904001,DITYA RYANI SARDI,2.94,3.11,3.31,3.32,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+2,201904002,NURUL AULIA KHOERUNNISA,2.83,3.22,2.92,3.18,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+3,201904004,MUJAHIDAH SABILILLAH HAQIQI,2.50,2.92,1.86,0.58,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,resign
+4,201904005,NOPI RAHMAWATI,3.56,3.64,3.64,3.42,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+5,201904006,FARID NABIL FIRDAUS,3.06,3.00,3.17,3.11,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+6,201904007,FALLEH,0.61,,,,aktif,resign,resign,resign,18,,,,15.00,,,,resign
+7,201904008,ABDILAH NURPERMANA,2.64,2.86,0.00,,aktif,aktif,wafat,wafat,18,18.00,18.00,,,,,,wafat
+8,201904009,DENDY MOH. RAMDAN,2.58,2.75,2.67,2.92,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,progress
+9,201904010,HAMZAH SALMAN AL FARISI,3.53,3.17,0.00,,aktif,aktif,aktif,resign,18,18.00,18.00,,,,,,resign
+10,201904011,MUHAMAD ALGI FACHRULI,2.86,3.11,3.47,3.13,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+11,201904012,MUHAMMAD DWIKI YUDHISTIRA,3.33,3.69,3.44,3.37,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+12,201904013,MUHAMMAD FADHIIL YUSUF,2.89,3.28,3.11,3.29,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+13,201904014,MUHAMAD FAUZAN MUSLIH,2.97,2.72,2.72,1.61,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,10.00,late 1 year
+14,201904015,RIAN AJIE PANGESTU,3.33,3.44,3.36,2.61,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,resign
+15,201904016,AYU SITI ROHMAH,2.89,3.22,2.97,2.53,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,3.00,on time
+16,201904017,NURUL HUDA,2.94,3.39,3.33,3.37,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+17,201904018,MUHAMMAD RAFFI WIJAYA,2.83,3.08,3.03,3.11,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+18,201904019,AMAR FAUZI,2.78,2.97,2.92,2.63,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+19,201904020,MUHAMAD AZIS,3.06,3.50,3.64,3.47,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+20,201904021,VIRA VIRGINIA,2.92,3.25,3.03,2.58,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,progress
+21,201904022,NURSITA SETYAWATI,3.19,3.33,3.50,3.42,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+22,201904024,LUTHFIYAH SAKINAH,3.53,3.78,3.81,3.74,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+23,201904025,ANNISA ZACHRY FAUZIAH,3.08,2.53,3.19,2.89,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,3.00,,,progress
+24,201904026,IKHSAN RAFLI FAUZI,2.69,3.14,3.03,3.16,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+25,201904027,ADILA ALAINA RISQI,2.81,3.19,3.11,3.45,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on time
+26,201904028,MOCHAMAD HAFIDZ,2.75,,,,aktif,resign,resign,resign,18,,,,,,,,resign
+1,202004001,INAYAH SALSABILLA,3.25,3.42,3.27,3.71,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,progress
+2,202004002,RAZA ALFIANZY,2.58,3.00,2.89,3.13,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on-time
+3,202004003,NURMAWATI,2.78,3.14,3.11,3.24,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on-time
+4,202004004,DEA ERIKA AFRIANI,2.75,3.22,3.22,,aktif,aktif,aktif,resign,18,18.00,18.00,,,,,,resign
+5,202004006,CATUR ANGGRAENA,2.78,3.11,3.13,3.42,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on-time
+6,202004008,ALFINA FAUZIA YUSUF,2.78,3.14,3.17,3.37,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on-time
+7,202004009,YUSUF RIZKI PERMANA,2.81,3.17,3.11,3.80,aktif,aktif,aktif,aktif,18,18.00,18.00,9.00,,,,,resign
+8,202004010,CHANDRA ARDIANSYAH,2.72,2.89,3.00,3.45,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on-time
+9,202004011,ALDIAN FILZAH DARYANTO,2.69,3.14,3.00,3.00,aktif,aktif,aktif,aktif,18,18.00,18.00,9.00,,,,,resign
+10,202004012,DINDA APRILIA,2.75,3.11,3.13,3.39,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on-time
+11,202004013,RIZKY ABIYU RAKSA,2.67,3.03,3.11,3.45,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on-time
+12,202004014,DZAKI ARRAFI WIGUNA,0.40,,,,aktif,resign,resign,resign,18,,,,15.00,,,,resign
+1,202104001,ARDIYANA AKMAL,3.08,2.56,2.36,0.42,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,16.00,prograss
+2,202104002,TAUFIK RASYIDIN,3.13,2.89,2.33,1.16,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,12.00,prograss
+3,202104003,QOULAN ADINDA MEILIA,3.36,3.47,3.11,2.34,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,16.00,prograss
+4,202104006,RIZAL FIRMANSYAH,3.08,2.94,2.44,1.03,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,prograss
+5,202104007,EMAH HUZZAEMAH,3.33,3.44,3.06,2.63,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on-time
+6,202104008,FADLI NURHIDAYAT,3.58,3.64,3.53,3.42,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on-time
+7,202104009,AFRIAN MUKLIS AL HAKIM,3.36,3.42,2.97,2.47,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,2.00,prograss
+8,202104010,MUHAMMAD DARIS HAFIZH PERMANA,3.30,3.67,3.22,3.42,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on-time
+9,202104011,ANANDIKA FADLI PURNAMA,3.11,0.00,0.00,0.00,aktif,non-aktif,resign,resign,18,18.00,,,18.00,,,,prograss
+10,202104012,DINA ARMEI,3.44,3.69,3.53,3.26,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on-time
+11,202104013,LEO PRATAMA,3.03,2.94,2.58,0.89,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,14.00,prograss
+12,202104014,MUHAMMAD JAELANI,3.33,3.67,3.17,0.79,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,16.00,prograss
+13,202104015,DENI RAMDAN,3.08,3.28,2.78,2.16,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,prograss
+14,202204016,RIFIALDI FATURROCHMAN,3.62,3.93,3.85,4.00,aktif,aktif,aktif,aktif,18,18.00,18.00,19.00,,,,,on-time
