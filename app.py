@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import joblib
 import numpy as np
 import pandas as pd
+import os
 
 # Load model
 try:
@@ -15,6 +16,15 @@ cuti_mapping = {'aktif': 0, 'non-aktif': 1, 'cuti': 2}
 
 # Inisialisasi Flask app
 app = Flask(__name__)
+
+@app.route('/', methods=['GET'])
+def health_check():
+    """Health check endpoint for Cloud Run"""
+    return jsonify({
+        'status': 'healthy',
+        'message': 'ML Model API is running',
+        'model_loaded': model is not None
+    })
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -65,4 +75,5 @@ def predict():
 
 # Jalankan server
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host='0.0.0.0', port=port, debug=False)
