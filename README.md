@@ -1,30 +1,18 @@
-# RF_Lupa-Wak! - Machine Learning API
+# RF_Lupa-Wak! - Prediction API
 
 This repository contains a machine learning model developed as part of my final project to classify the graduation status of students in the Software Engineering (TRPL) program at Politeknik Enjinering Indorama (PEI).
-
-## Model Information
-
-- **Algorithm**: Random Forest Classifier
-- **Target**: Graduation Status Classification (Lulus Tepat Waktu / Lulus Tidak Tepat Waktu)
-- **Features**: IPS (GPA) per semester, cuti status, total SKS, and failed SKS
 
 ## API Endpoints
 
 ### Health Check
 
-```
-GET /
-```
-
-Returns API status and model loading status.
+- **GET** `/` - Check if the API is running
+- Response: JSON with status and model loading information
 
 ### Prediction
 
-```
-POST /predict
-```
-
-**Request Body:**
+- **POST** `/predict` - Predict graduation status
+- Request Body (JSON):
 
 ```json
 {
@@ -37,11 +25,11 @@ POST /predict
   "cuti_3": "aktif",
   "cuti_4": "aktif",
   "total_sks_ditempuh": 120,
-  "total_sks_tidak_lulus": 6
+  "total_sks_tidak_lulus": 0
 }
 ```
 
-**Response:**
+- Response (JSON):
 
 ```json
 {
@@ -51,43 +39,42 @@ POST /predict
 }
 ```
 
-## Deployment on Google Cloud Platform
+## Deployment to Google Cloud Platform
 
 ### Prerequisites
 
-1. Google Cloud Platform account
-2. Google Cloud SDK installed
-3. Docker installed (for local testing)
+1. Google Cloud SDK installed
+2. Project ID: `finalthesis-465407`
+3. Repository pushed to GitHub
 
-### Manual Deployment Steps
+### Deployment Steps
 
-#### 1. Setup GCP Project
+1. **Clone repository and navigate to project directory:**
 
 ```bash
-# Login to GCP
-gcloud auth login
+git clone https://github.com/rifialdiif/Final_Thesis_Model.git
+cd Final_Thesis_Model
+```
 
-# Set your project ID
-gcloud config set project YOUR_PROJECT_ID
+2. **Set up Google Cloud project:**
 
-# Enable required APIs
+```bash
+gcloud config set project finalthesis-465407
+```
+
+3. **Enable required APIs:**
+
+```bash
 gcloud services enable cloudbuild.googleapis.com
 gcloud services enable run.googleapis.com
 gcloud services enable containerregistry.googleapis.com
 ```
 
-#### 2. Build and Deploy
+4. **Deploy to Cloud Run:**
 
 ```bash
-# Build the Docker image
-docker build -t gcr.io/YOUR_PROJECT_ID/rf-lupa-wak-api .
-
-# Push to Container Registry
-docker push gcr.io/YOUR_PROJECT_ID/rf-lupa-wak-api
-
-# Deploy to Cloud Run
-gcloud run deploy rf-lupa-wak-api \
-  --image gcr.io/YOUR_PROJECT_ID/rf-lupa-wak-api \
+gcloud run deploy prediction-api \
+  --source . \
   --platform managed \
   --region asia-southeast1 \
   --allow-unauthenticated \
@@ -96,39 +83,22 @@ gcloud run deploy rf-lupa-wak-api \
   --max-instances 10
 ```
 
-### Automated Deployment with Cloud Build
-
-1. Connect your GitHub repository to Cloud Build
-2. Push changes to trigger automatic deployment
-3. Cloud Build will use the `cloudbuild.yaml` configuration
-
-### Environment Variables
-
-- `PORT`: Server port (default: 5000)
-- `PYTHONUNBUFFERED`: Python output buffering (set to 1)
-
-## Local Development
-
-### Install Dependencies
+5. **Get the service URL:**
 
 ```bash
-pip install -r requirements.txt
+gcloud run services describe prediction-api --region asia-southeast1 --format="value(status.url)"
 ```
 
-### Run Locally
+### Testing the API
 
-```bash
-python app.py
-```
-
-### Test API
+Once deployed, you can test the API using curl:
 
 ```bash
 # Health check
-curl http://localhost:5000/
+curl https://your-service-url/
 
 # Prediction
-curl -X POST http://localhost:5000/predict \
+curl -X POST https://your-service-url/predict \
   -H "Content-Type: application/json" \
   -d '{
     "ips_1": 3.5,
@@ -140,24 +110,12 @@ curl -X POST http://localhost:5000/predict \
     "cuti_3": "aktif",
     "cuti_4": "aktif",
     "total_sks_ditempuh": 120,
-    "total_sks_tidak_lulus": 6
+    "total_sks_tidak_lulus": 0
   }'
 ```
 
-## Model Performance
+## Model Information
 
-- **Accuracy**: [To be added]
-- **Precision**: [To be added]
-- **Recall**: [To be added]
-- **F1-Score**: [To be added]
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## License
-
-This project is part of the final thesis for Software Engineering program at Politeknik Enjinering Indorama.
+- **Algorithm**: Random Forest
+- **Features**: IPS (1-4), Cuti status (1-4), Total SKS ditempuh, Total SKS tidak lulus
+- **Target**: Graduation status (Lulus Tepat Waktu / Lulus Tidak Tepat Waktu)

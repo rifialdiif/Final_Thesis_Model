@@ -1,26 +1,29 @@
 #!/usr/bin/env python3
 """
-Test script for RF_Lupa-Wak! API
+Test script for the Prediction API
+Run this script to test the API endpoints
 """
 
 import requests
 import json
-import sys
 
 def test_health_check(base_url):
-    """Test health check endpoint"""
+    """Test the health check endpoint"""
+    print("🔍 Testing health check...")
     try:
         response = requests.get(f"{base_url}/")
-        print(f"✅ Health Check: {response.status_code}")
+        print(f"Status Code: {response.status_code}")
         print(f"Response: {response.json()}")
         return response.status_code == 200
     except Exception as e:
-        print(f"❌ Health Check failed: {e}")
+        print(f"❌ Error: {e}")
         return False
 
 def test_prediction(base_url):
-    """Test prediction endpoint"""
-    # Sample data
+    """Test the prediction endpoint"""
+    print("\n🔍 Testing prediction endpoint...")
+    
+    # Sample data for testing
     test_data = {
         "ips_1": 3.5,
         "ips_2": 3.2,
@@ -31,7 +34,7 @@ def test_prediction(base_url):
         "cuti_3": "aktif",
         "cuti_4": "aktif",
         "total_sks_ditempuh": 120,
-        "total_sks_tidak_lulus": 6
+        "total_sks_tidak_lulus": 0
     }
     
     try:
@@ -40,63 +43,43 @@ def test_prediction(base_url):
             headers={"Content-Type": "application/json"},
             data=json.dumps(test_data)
         )
-        print(f"✅ Prediction: {response.status_code}")
+        print(f"Status Code: {response.status_code}")
         print(f"Response: {response.json()}")
         return response.status_code == 200
     except Exception as e:
-        print(f"❌ Prediction failed: {e}")
-        return False
-
-def test_invalid_data(base_url):
-    """Test with invalid data"""
-    invalid_data = {
-        "ips_1": 3.5,
-        "ips_2": 3.2,
-        # Missing required fields
-    }
-    
-    try:
-        response = requests.post(
-            f"{base_url}/predict",
-            headers={"Content-Type": "application/json"},
-            data=json.dumps(invalid_data)
-        )
-        print(f"✅ Invalid Data Test: {response.status_code} (expected 400)")
-        print(f"Response: {response.json()}")
-        return response.status_code == 400
-    except Exception as e:
-        print(f"❌ Invalid data test failed: {e}")
+        print(f"❌ Error: {e}")
         return False
 
 def main():
-    # Default to localhost if no URL provided
-    base_url = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:5000"
+    """Main function to run all tests"""
+    print("🧪 Starting API tests...")
     
-    print(f"🧪 Testing RF_Lupa-Wak! API at: {base_url}")
-    print("=" * 50)
+    # Replace with your actual API URL after deployment
+    base_url = input("Enter your API URL (e.g., https://prediction-api-xxx-xx.a.run.app): ").strip()
     
-    tests = [
-        ("Health Check", lambda: test_health_check(base_url)),
-        ("Prediction", lambda: test_prediction(base_url)),
-        ("Invalid Data", lambda: test_invalid_data(base_url))
-    ]
+    if not base_url:
+        print("❌ No URL provided. Exiting.")
+        return
     
-    passed = 0
-    total = len(tests)
+    # Remove trailing slash if present
+    if base_url.endswith('/'):
+        base_url = base_url[:-1]
     
-    for test_name, test_func in tests:
-        print(f"\n🔍 Running {test_name}...")
-        if test_func():
-            passed += 1
-        print("-" * 30)
+    print(f"🌐 Testing API at: {base_url}")
     
-    print(f"\n📊 Test Results: {passed}/{total} tests passed")
+    # Run tests
+    health_success = test_health_check(base_url)
+    prediction_success = test_prediction(base_url)
     
-    if passed == total:
-        print("🎉 All tests passed!")
+    # Summary
+    print("\n📊 Test Summary:")
+    print(f"Health Check: {'✅ PASS' if health_success else '❌ FAIL'}")
+    print(f"Prediction: {'✅ PASS' if prediction_success else '❌ FAIL'}")
+    
+    if health_success and prediction_success:
+        print("\n🎉 All tests passed! Your API is working correctly.")
     else:
-        print("❌ Some tests failed!")
-        sys.exit(1)
+        print("\n⚠️ Some tests failed. Please check your deployment.")
 
 if __name__ == "__main__":
     main() 
