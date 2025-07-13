@@ -1,3 +1,6 @@
+.git
+.gitignore
+README.md
 __pycache__
 *.pyc
 *.pyo
@@ -17,15 +20,4 @@ coverage.xml
 .git
 .mypy_cache
 .pytest_cache
-.hypothesis
-.DS_Store
-.env
-.venv
-venv/
-ENV/
-env/
-.idea/
-.vscode/
-*.swp
-*.swo
-*~ 
+.hypothesis 

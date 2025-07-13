@@ -17,12 +17,13 @@ cuti_mapping = {'aktif': 0, 'non-aktif': 1, 'cuti': 2}
 # Inisialisasi Flask app
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def health_check():
+@app.route('/')
+def home():
     return jsonify({
-        'status': 'healthy',
-        'message': 'Prediction API is running',
-        'model_loaded': model is not None
+        'message': 'Prediksi Kelulusan Mahasiswa API',
+        'endpoint': '/predict',
+        'method': 'POST',
+        'required_fields': ['ips_1', 'ips_2', 'ips_3', 'ips_4', 'cuti_1', 'cuti_2', 'cuti_3', 'cuti_4', 'total_sks_ditempuh', 'total_sks_tidak_lulus']
     })
 
 @app.route('/predict', methods=['POST'])

@@ -1,18 +1,58 @@
-# RF_Lupa-Wak! - Prediction API
+# Prediksi Kelulusan Mahasiswa API
 
-This repository contains a machine learning model developed as part of my final project to classify the graduation status of students in the Software Engineering (TRPL) program at Politeknik Enjinering Indorama (PEI).
+API untuk memprediksi kelulusan mahasiswa berdasarkan data akademik menggunakan model Random Forest.
 
-## API Endpoints
+## Deployment di Google Cloud Platform
 
-### Health Check
+### Langkah-langkah Deployment:
 
-- **GET** `/` - Check if the API is running
-- Response: JSON with status and model loading information
+1. **Push ke GitHub**
 
-### Prediction
+   ```bash
+   git add .
+   git commit -m "Prepare for GCP deployment"
+   git push origin main
+   ```
 
-- **POST** `/predict` - Predict graduation status
-- Request Body (JSON):
+2. **Setup Google Cloud Project**
+
+   - Buka [Google Cloud Console](https://console.cloud.google.com)
+   - Pilih project: `finalthesis-465407`
+   - Aktifkan API yang diperlukan:
+     - Cloud Run API
+     - Cloud Build API
+     - Container Registry API
+
+3. **Deploy menggunakan Cloud Build**
+
+   ```bash
+   gcloud builds submit --config cloudbuild.yaml
+   ```
+
+4. **Atau deploy manual dengan gcloud**
+
+   ```bash
+   # Build dan push image
+   gcloud builds submit --tag gcr.io/finalthesis-465407/prediksi-kelulusan-api
+
+   # Deploy ke Cloud Run
+   gcloud run deploy prediksi-kelulusan-api \
+     --image gcr.io/finalthesis-465407/prediksi-kelulusan-api \
+     --platform managed \
+     --region asia-southeast1 \
+     --allow-unauthenticated \
+     --memory 512Mi \
+     --cpu 1 \
+     --max-instances 10
+   ```
+
+## Penggunaan API
+
+### Endpoint: `/predict`
+
+**Method:** POST
+
+**Request Body:**
 
 ```json
 {
@@ -24,12 +64,12 @@ This repository contains a machine learning model developed as part of my final 
   "cuti_2": "aktif",
   "cuti_3": "aktif",
   "cuti_4": "aktif",
-  "total_sks_ditempuh": 120,
+  "total_sks_ditempuh": 144,
   "total_sks_tidak_lulus": 0
 }
 ```
 
-- Response (JSON):
+**Response:**
 
 ```json
 {
@@ -39,66 +79,10 @@ This repository contains a machine learning model developed as part of my final 
 }
 ```
 
-## Deployment to Google Cloud Platform
-
-### Prerequisites
-
-1. Google Cloud SDK installed
-2. Project ID: `finalthesis-465407`
-3. Repository pushed to GitHub
-
-### Deployment Steps
-
-1. **Clone repository and navigate to project directory:**
+### Test dengan curl:
 
 ```bash
-git clone https://github.com/rifialdiif/Final_Thesis_Model.git
-cd Final_Thesis_Model
-```
-
-2. **Set up Google Cloud project:**
-
-```bash
-gcloud config set project finalthesis-465407
-```
-
-3. **Enable required APIs:**
-
-```bash
-gcloud services enable cloudbuild.googleapis.com
-gcloud services enable run.googleapis.com
-gcloud services enable containerregistry.googleapis.com
-```
-
-4. **Deploy to Cloud Run:**
-
-```bash
-gcloud run deploy prediction-api \
-  --source . \
-  --platform managed \
-  --region asia-southeast1 \
-  --allow-unauthenticated \
-  --memory 512Mi \
-  --cpu 1 \
-  --max-instances 10
-```
-
-5. **Get the service URL:**
-
-```bash
-gcloud run services describe prediction-api --region asia-southeast1 --format="value(status.url)"
-```
-
-### Testing the API
-
-Once deployed, you can test the API using curl:
-
-```bash
-# Health check
-curl https://your-service-url/
-
-# Prediction
-curl -X POST https://your-service-url/predict \
+curl -X POST https://your-cloud-run-url/predict \
   -H "Content-Type: application/json" \
   -d '{
     "ips_1": 3.5,
@@ -109,13 +93,14 @@ curl -X POST https://your-service-url/predict \
     "cuti_2": "aktif",
     "cuti_3": "aktif",
     "cuti_4": "aktif",
-    "total_sks_ditempuh": 120,
+    "total_sks_ditempuh": 144,
     "total_sks_tidak_lulus": 0
   }'
 ```
 
-## Model Information
+## Field Requirements:
 
-- **Algorithm**: Random Forest
-- **Features**: IPS (1-4), Cuti status (1-4), Total SKS ditempuh, Total SKS tidak lulus
-- **Target**: Graduation status (Lulus Tepat Waktu / Lulus Tidak Tepat Waktu)
+- `ips_1` sampai `ips_4`: IPK semester 1-4 (float)
+- `cuti_1` sampai `cuti_4`: Status cuti semester 1-4 ("aktif", "non-aktif", "cuti")
+- `total_sks_ditempuh`: Total SKS yang sudah ditempuh (float)
+- `total_sks_tidak_lulus`: Total SKS yang tidak lulus (float)

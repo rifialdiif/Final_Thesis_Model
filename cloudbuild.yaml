@@ -1,11 +1,11 @@
 steps:
   # Build the container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/$PROJECT_ID/prediction-api", "."]
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/prediksi-kelulusan-api", "."]
 
   # Push the container image to Container Registry
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/$PROJECT_ID/prediction-api"]
+    args: ["push", "gcr.io/$PROJECT_ID/prediksi-kelulusan-api"]
 
   # Deploy container image to Cloud Run
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
@@ -13,9 +13,9 @@ steps:
     args:
       - "run"
       - "deploy"
-      - "prediction-api"
+      - "prediksi-kelulusan-api"
       - "--image"
-      - "gcr.io/$PROJECT_ID/prediction-api"
+      - "gcr.io/$PROJECT_ID/prediksi-kelulusan-api"
       - "--region"
       - "asia-southeast1"
       - "--platform"
@@ -29,4 +29,4 @@ steps:
       - "10"
 
 images:
-  - "gcr.io/$PROJECT_ID/prediction-api"
+  - "gcr.io/$PROJECT_ID/prediksi-kelulusan-api"

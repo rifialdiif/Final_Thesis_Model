@@ -1,56 +1,34 @@
 #!/bin/bash
 
-# Deployment script for Prediction API to Google Cloud Run
-# Run this script in Google Cloud Shell
+# Script untuk deploy ke Google Cloud Run
+# Pastikan sudah login ke gcloud: gcloud auth login
 
-echo "🚀 Starting deployment of Prediction API to Google Cloud Run..."
+echo "🚀 Starting deployment to Google Cloud Run..."
 
 # Set project ID
 PROJECT_ID="finalthesis-465407"
 REGION="asia-southeast1"
-SERVICE_NAME="prediction-api"
+SERVICE_NAME="prediksi-kelulusan-api"
 
-echo "📋 Setting up project configuration..."
-gcloud config set project $PROJECT_ID
+echo "📋 Project ID: $PROJECT_ID"
+echo "🌍 Region: $REGION"
+echo "🔧 Service Name: $SERVICE_NAME"
 
-echo "🔧 Enabling required APIs..."
-gcloud services enable cloudbuild.googleapis.com
-gcloud services enable run.googleapis.com
-gcloud services enable containerregistry.googleapis.com
+# Build and push the container
+echo "🔨 Building and pushing container..."
+gcloud builds submit --tag gcr.io/$PROJECT_ID/$SERVICE_NAME
 
-echo "🏗️ Building and deploying to Cloud Run..."
+# Deploy to Cloud Run
+echo "🚀 Deploying to Cloud Run..."
 gcloud run deploy $SERVICE_NAME \
-  --source . \
+  --image gcr.io/$PROJECT_ID/$SERVICE_NAME \
   --platform managed \
   --region $REGION \
   --allow-unauthenticated \
   --memory 512Mi \
   --cpu 1 \
-  --max-instances 10 \
-  --timeout 300
+  --max-instances 10
 
 echo "✅ Deployment completed!"
-echo "🌐 Getting service URL..."
-
-SERVICE_URL=$(gcloud run services describe $SERVICE_NAME --region $REGION --format="value(status.url)")
-
-echo "🎉 Your API is now live at: $SERVICE_URL"
-echo ""
-echo "📝 Test your API:"
-echo "Health check: curl $SERVICE_URL/"
-echo ""
-echo "Prediction test:"
-echo "curl -X POST $SERVICE_URL/predict \\"
-echo "  -H \"Content-Type: application/json\" \\"
-echo "  -d '{"
-echo "    \"ips_1\": 3.5,"
-echo "    \"ips_2\": 3.2,"
-echo "    \"ips_3\": 3.8,"
-echo "    \"ips_4\": 3.6,"
-echo "    \"cuti_1\": \"aktif\","
-echo "    \"cuti_2\": \"aktif\","
-echo "    \"cuti_3\": \"aktif\","
-echo "    \"cuti_4\": \"aktif\","
-echo "    \"total_sks_ditempuh\": 120,"
-echo "    \"total_sks_tidak_lulus\": 0"
-echo "  }'" 
+echo "🌐 Your API URL will be shown above"
+echo "📝 To test the API, use the URL + /predict endpoint" 
